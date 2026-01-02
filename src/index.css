@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@theme {
+  --font-satoshi: Satoshi, Inter, system-ui, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  --font-poppins: Poppins, Inter, system-ui, sans-serif;
+
+  --color-bg: #0b0b0b;
+  --color-card: #111111;
+  --color-border: #1f1f1f;
+  --color-textPrimary: #ffffff;
+  --color-textSecondary: #b5b5b5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #ffffff;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Satoshi, Inter, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+}
