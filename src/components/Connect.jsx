@@ -55,16 +55,16 @@ export default function Connect() {
                     </div>
 
                     {/* RIGHT IMAGE */}
-                    <div className=" relative rounded-3xl border border-white/5 bg-[#0f0f0f] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                    {/* <div className=" relative rounded-3xl border border-white/5 bg-[#0f0f0f] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"> */}
                         {/* Image */}
-                        <div className="relative  overflow-hidden rounded-2xl">
+                        {/* <div className="relative  overflow-hidden rounded-2xl">
                             <img
                                 src={profilePic}
                                 alt="Ronit Parekh"
                                 className="h-100 w-full object-cover"
                                 loading="lazy" />
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                 </div>
 
                 {/* FOOTER */}

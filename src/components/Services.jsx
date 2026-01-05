@@ -17,7 +17,6 @@ export default function Services() {
     "CSS3",
     "Postman",
     "Vercel",
-    "Docker",
     "MySQL",
     "PostgreSQL",
     "System Design",
@@ -25,8 +24,6 @@ export default function Services() {
     "Performance Optimization",
   ];
 
-  // Repeat the skills inside each track so the track is always wider
-  // than the container on most viewports (prevents blank gaps/pause).
   const row1Skills = [...row1Base, ...row1Base];
   const row2Skills = [...row2Base, ...row2Base];
 
@@ -148,8 +145,8 @@ export default function Services() {
       <div className="mx-auto mt-28 max-w-7xl overflow-hidden relative">
 
             {/* Fade edges (optional but Framer-like) */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-black to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-50 bg-linear-to-r from-black to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-50 bg-linear-to-l from-black to-transparent z-10" />
 
             {/* ROW 1 → */}
             <div className="mb-6">
@@ -208,7 +205,6 @@ export default function Services() {
                 </div>
               </div>
             </div>
-
       </div>
       {/* ================= END MARQUEE ================= */}
     </section>
