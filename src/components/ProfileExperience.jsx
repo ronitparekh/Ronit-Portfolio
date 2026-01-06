@@ -2,10 +2,9 @@ import profilePic from "../assets/ProfilePic.jpeg";
 
 export default function ProfileExperience() {
     const skillTags = [
-        "UI/UX Design",
-        "Full-Stack Dev",
-        "Branding",
-        "Illustration",
+        "Full-Stack Development",
+        "System Architecture",
+        "Restful APIs"
     ];
 
     const experiences = [
