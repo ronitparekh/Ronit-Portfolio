@@ -1,34 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function ProjectCard({ project, className }) {
   const cardRef = useRef(null);
-  const ctaRef = useRef(null);
 
-  const mouse = useRef({ x: 0, y: 0 });
-  const current = useRef({ x: 0, y: 0 });
+  const emit = (name, detail) => {
+    if (typeof window === "undefined") return;
+    window.dispatchEvent(new CustomEvent(name, { detail }));
+  };
 
-  const [visible, setVisible] = useState(false);
-
-  // 🔁 Smooth follow loop (runs once)
-  useEffect(() => {
-    const animate = () => {
-      current.current.x += (mouse.current.x - current.current.x) * 0.15;
-      current.current.y += (mouse.current.y - current.current.y) * 0.15;
-
-      if (ctaRef.current) {
-        ctaRef.current.style.transform = `
-          translate3d(${current.current.x}px, ${current.current.y}px, 0)
-        `;
-      }
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-  }, []);
-
-  const handleMouseMove = (e) => {
-    const rect = cardRef.current.getBoundingClientRect();
+  const updateProjectCursor = (e) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
 
     // cursor position relative to card
     let x = e.clientX - rect.left;
@@ -42,17 +24,23 @@ export default function ProjectCard({ project, className }) {
     x = Math.max(padding, Math.min(x, rect.width - ctaWidth - padding));
     y = Math.max(padding, Math.min(y, rect.height - ctaHeight - padding));
 
-    mouse.current.x = x;
-    mouse.current.y = y;
+    // CursorDot expects screen-space center coordinates
+    const centerX = rect.left + x + ctaWidth / 2;
+    const centerY = rect.top + y + ctaHeight / 2;
+
+    emit("cursorDot:projectMove", { x: centerX, y: centerY });
   };
 
   return (
     <a
       href="#"
       ref={cardRef}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
-      onMouseMove={handleMouseMove}
+      onMouseEnter={(e) => {
+        emit("cursorDot:projectEnter", { label: "View project" });
+        updateProjectCursor(e);
+      }}
+      onMouseLeave={() => emit("cursorDot:projectLeave")}
+      onMouseMove={updateProjectCursor}
       className={`group relative overflow-visible rounded-4xl bg-[#0f0f0f] p-4
       shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.8)]
       ${className}`}
@@ -66,29 +54,6 @@ export default function ProjectCard({ project, className }) {
           transition duration-500 group-hover:grayscale-0 group-hover:brightness-100"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
-      </div>
-
-      {/* FLOATING CTA */}
-      <div
-        ref={ctaRef}
-        className={`
-          pointer-events-none absolute z-20
-          transition-opacity duration-300 ease-out
-          ${visible ? "opacity-100" : "opacity-0"}
-        `}
-        style={{ top: 0, left: 0 }}
-      >
-        <div className="
-          rounded-full
-          bg-white/40
-          backdrop-blur-md
-          px-5 py-2
-          text-sm font-medium text-black
-          shadow-lg
-          whitespace-nowrap
-        ">
-          View project
-        </div>
       </div>
 
       {/* CORNER ARROW */}
