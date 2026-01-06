@@ -6,8 +6,8 @@ export default function Hero() {
                 <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
                     {/* circle + dot icon */}
                     <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
-                        <span className="relative h-3 w-3 rounded-full border border-white/70">
-                            <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white/90" />
+                        <span className="relative h-3 w-3 rounded-full border border-white">
+                            <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
 
                         </span>
                     </span>
@@ -28,20 +28,20 @@ export default function Hero() {
                 <div className="flex gap-3 sm:gap-4">
                     <a
                         href="#projects"
-                        className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                        className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-5 text-sm font-medium text-white transition hover:opacity-90"
                     >
                         See All Projects
                     </a>
 
                     <a
                         href="#contact"
-                        className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                        className="inline-flex items-center justify-center rounded-full bg-white  px-6 py-5 text-sm font-medium text-black transition hover:opacity-90"
                     >
                         Contact Now
                     </a>
                 </div>
             </div>
-
+ 
             {/* Background */}
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_45%)]"></div>
         </section>

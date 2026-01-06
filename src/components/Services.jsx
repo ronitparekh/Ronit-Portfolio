@@ -27,6 +27,12 @@ export default function Services() {
   const row1Skills = [...row1Base, ...row1Base];
   const row2Skills = [...row2Base, ...row2Base];
 
+  const webDevImages = [
+    { src: "/images/service-web.svg", alt: "Web Pages" },
+    { src: "/images/service-auth.svg", alt: "Authentication" },
+    { src: "/images/service-deploy.svg", alt: "Deployment" },
+  ];
+
   return (
     <section className="px-6 py-32 border border-white/10 rounded-4xl">
       <div className="mx-auto max-w-7xl">
@@ -36,8 +42,8 @@ export default function Services() {
           <div>
             <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
               <span className="inline-flex h-4 w-4 items-center justify-center">
-                <span className="relative h-3 w-3 rounded-full border border-white/70">
-                  <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white/90" />
+                <span className="relative h-3 w-3 rounded-full border border-white">
+                  <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
                 </span>
               </span>
               Development Services
@@ -55,7 +61,7 @@ export default function Services() {
 
           <a
             href="#contact"
-            className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90 transition"
+            className="rounded-full bg-white px-6 py-5 text-sm font-medium text-black hover:bg-white/90 transition"
           >
             Contact Now
           </a>
@@ -69,18 +75,19 @@ export default function Services() {
 
                 {/* BIG CARD — Web App Dev */}
                 <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
-                  <h3 className="mb-3 text-lg font-medium text-white">
-                    Web Application Development
+                <h3 className="mb-3 text-lg font-medium text-white">
+                    Frontend Engineering
                   </h3>
-                  <p className="mb-6 text-sm text-white/60">
-                    Building scalable, high-performance web applications using React
-                    and Node.js with clean architecture and real-world usability.
+                  <p className="text-sm text-white/60">
+                    Clean, responsive, and accessible user interfaces using React and
+                    Tailwind CSS, optimized for performance.
                   </p>
+                  <br></br><br></br>
 
                   <div className="overflow-hidden rounded-2xl">
                     <img
-                      src="/images/service-web.jpg"
-                      alt="Web App Development"
+                      src="/images/service-web.svg"
+                      alt="Frontend Engineering"
                       className="h-56 w-full object-cover"
                     />
                   </div>
@@ -105,35 +112,52 @@ export default function Services() {
                 {/* SMALL CARD — Frontend */}
                 <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
                   <h3 className="mb-3 text-lg font-medium text-white">
-                    Frontend Engineering
-                  </h3>
-                  <p className="text-sm text-white/60">
-                    Clean, responsive, and accessible user interfaces using React and
-                    Tailwind CSS, optimized for performance.
-                  </p>
-                </div>
-
-                {/* BIG CARD — Auth + Deploy */}
-                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
-                  <h3 className="mb-3 text-lg font-medium text-white">
                     Authentication & Deployment
                   </h3>
                   <p className="mb-6 text-sm text-white/60">
                     Secure authentication, role-based access, and production-ready
                     deployment with optimization and monitoring.
                   </p>
+                </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <img
-                      src="/images/service-auth.jpg"
-                      alt="Authentication"
-                      className="h-40 w-full rounded-xl object-cover"
-                    />
-                    <img
-                      src="/images/service-deploy.jpg"
-                      alt="Deployment"
-                      className="h-56 w-full rounded-xl object-cover"
-                    />
+                {/* BIG CARD — Auth + Deploy */}
+                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                  
+                  <h3 className="mb-3 text-lg font-medium text-white">
+                    Web Application Development
+                  </h3>
+                  <p className="mb-6 text-sm text-white/60">
+                    Building scalable, high-performance web applications using React
+                    and Node.js with clean architecture and real-world usability.
+                  </p>
+
+                  <div className="relative overflow-hidden rounded-2xl">
+                    {/* Fade edges */}
+                    <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-black to-transparent" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-black to-transparent" />
+
+                    <div className="flex w-max animate-marquee items-center gap-4 will-change-transform [animation-duration:22s] motion-reduce:animate-none">
+                      {webDevImages.map((img, idx) => (
+                        <img
+                          key={`${img.src}-${idx}`}
+                          src={img.src}
+                          alt={img.alt}
+                          className="h-56 w-64 shrink-0 rounded-xl object-cover"
+                          loading="lazy"
+                        />
+                      ))}
+
+                      {webDevImages.map((img, idx) => (
+                        <img
+                          key={`${img.src}-${idx}-dup`}
+                          src={img.src}
+                          alt={img.alt}
+                          className="h-56 w-64 shrink-0 rounded-xl object-cover"
+                          loading="lazy"
+                          aria-hidden="true"
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
 

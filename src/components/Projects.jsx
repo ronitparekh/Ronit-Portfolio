@@ -14,7 +14,7 @@ const projects = [
     link: "#",
   },
   {
-    title: "MyPlanner Calendar App",
+    title: "MyPlanner-Calendar App",
     image:
       "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1600&q=80",
     link: "#",
@@ -29,7 +29,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-6 pt-10 pb-20">
+    <section id="projects" className="px-6 pb-32">
       <div className="mx-auto max-w-6xl">
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:grid-rows-[260px_260px_260px]">

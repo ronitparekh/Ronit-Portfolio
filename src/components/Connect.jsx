@@ -1,4 +1,3 @@
-import profilePic from "../assets/ProfilePic.jpeg";
 export default function Connect() {
     return (
         <section className="px-32 py-32 border border-white/10 rounded-4xl">
@@ -13,8 +12,8 @@ export default function Connect() {
                         <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
                             {/* circle + dot icon */}
                             <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
-                                <span className="relative h-3 w-3 rounded-full border border-white/70">
-                                    <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white/90" />
+                                <span className="relative h-3 w-3 rounded-full border border-white">
+                                    <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
 
                                 </span>
                             </span>
@@ -40,31 +39,102 @@ export default function Connect() {
                         <div className="flex flex-wrap gap-4">
                             <a
                                 href="#projects"
-                                className="rounded-full border border-white/10 bg-[#0f0f0f] px-6 py-3 text-sm text-white transition hover:opacity-90"
+                                className="rounded-full border border-white/10 bg-[#0f0f0f] px-6 py-5 text-sm text-white transition hover:opacity-90"
                             >
                                 See All Projects
                             </a>
 
                             <a
                                 href="#contact"
-                                className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                                className="rounded-full bg-white px-6 py-5 text-sm font-medium text-black transition hover:opacity-90"
                             >
                                 Get Started Now
                             </a>
                         </div>
                     </div>
 
-                    {/* RIGHT IMAGE */}
-                    {/* <div className=" relative rounded-3xl border border-white/5 bg-[#0f0f0f] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.7)]"> */}
-                        {/* Image */}
-                        {/* <div className="relative  overflow-hidden rounded-2xl">
-                            <img
-                                src={profilePic}
-                                alt="Ronit Parekh"
-                                className="h-100 w-full object-cover"
-                                loading="lazy" />
-                        </div> */}
-                    {/* </div> */}
+                    {/* RIGHT (abstract 3D visual) */}
+                    <div className="relative">
+                        <div className="rounded-3xl border border-white/10 bg-[#0f0f0f] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                            <div
+                                className="relative mx-auto aspect-4/3 w-full max-w-md"
+                                style={{ perspective: "1200px" }}
+                                aria-hidden="true"
+                            >
+                                <div
+                                    className="absolute inset-0"
+                                    style={{ transformStyle: "preserve-3d" }}
+                                >
+                                    {/* back plate */}
+                                    <div
+                                        className="absolute inset-0 rounded-2xl border border-white/10 bg-white/5"
+                                        style={{ transform: "translateZ(-48px) rotateX(10deg) rotateY(-16deg) translateY(8px)" }}
+                                    />
+
+                                    {/* middle plate */}
+                                    <div
+                                        className="absolute inset-0 rounded-2xl border border-white/10 bg-white/5"
+                                        style={{ transform: "translateZ(-24px) rotateX(10deg) rotateY(-16deg) translateY(4px)" }}
+                                    />
+
+                                    {/* front plate */}
+                                    <div
+                                        className="absolute inset-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                                        style={{ transform: "translateZ(0px) rotateX(10deg) rotateY(-16deg)" }}
+                                    >
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+
+                                        {/* faux UI */}
+                                        <div className="relative p-6">
+                                            <div className="flex items-center gap-2">
+                                                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                                                <span className="h-2.5 w-2.5 rounded-full bg-white/18" />
+                                                <span className="h-2.5 w-2.5 rounded-full bg-white/12" />
+                                                <div className="ml-auto h-7 w-28 rounded-full border border-white/10 bg-white/5" />
+                                            </div>
+
+                                            <div className="mt-6 h-px w-full bg-white/10" />
+
+                                            <div className="mt-6 grid grid-cols-2 gap-4">
+                                                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                                                    <div className="h-3 w-24 rounded bg-white/15" />
+                                                    <div className="mt-3 h-2 w-full rounded bg-white/10" />
+                                                    <div className="mt-2 h-2 w-5/6 rounded bg-white/10" />
+                                                </div>
+                                                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                                                    <div className="h-3 w-20 rounded bg-white/15" />
+                                                    <div className="mt-3 h-2 w-full rounded bg-white/10" />
+                                                    <div className="mt-2 h-2 w-4/6 rounded bg-white/10" />
+                                                </div>
+                                                <div className="col-span-2 rounded-xl border border-white/10 bg-white/5 p-4">
+                                                    <div className="h-3 w-28 rounded bg-white/15" />
+                                                    <div className="mt-3 h-2 w-full rounded bg-white/10" />
+                                                    <div className="mt-2 h-2 w-11/12 rounded bg-white/10" />
+                                                    <div className="mt-2 h-2 w-9/12 rounded bg-white/10" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* floating accents */}
+                                    <div
+                                        className="absolute left-10 top-10 h-24 w-24 rounded-2xl border border-white/10 bg-white/5"
+                                        style={{ transform: "translateZ(28px) rotateX(10deg) rotateY(-16deg)" }}
+                                    />
+                                    <div
+                                        className="absolute bottom-10 right-12 h-16 w-32 rounded-2xl border border-white/10 bg-white/5"
+                                        style={{ transform: "translateZ(18px) rotateX(10deg) rotateY(-16deg)" }}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="pointer-events-none mt-6 h-px w-full bg-white/10" />
+                            <div className="mt-5 flex items-center justify-between text-sm text-white/60">
+                                <span>Design • Build • Ship</span>
+                                <span>UI/UX • APIs • Deploy</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* FOOTER */}

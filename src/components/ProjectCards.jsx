@@ -53,7 +53,7 @@ export default function ProjectCard({ project, className }) {
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
       onMouseMove={handleMouseMove}
-      className={`group relative overflow-visible rounded-4xl bg-[#0f0f0f] p-3
+      className={`group relative overflow-visible rounded-4xl bg-[#0f0f0f] p-4
       shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.8)]
       ${className}`}
     >
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, className }) {
           className="h-full w-full object-cover grayscale contrast-125 brightness-90
           transition duration-500 group-hover:grayscale-0 group-hover:brightness-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
 
       {/* FLOATING CTA */}
@@ -80,7 +80,7 @@ export default function ProjectCard({ project, className }) {
       >
         <div className="
           rounded-full
-          bg-white/80
+          bg-white/40
           backdrop-blur-md
           px-5 py-2
           text-sm font-medium text-black
@@ -92,16 +92,38 @@ export default function ProjectCard({ project, className }) {
       </div>
 
       {/* CORNER ARROW */}
-      <span className="absolute bottom-3 left-3 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M7 17L17 7M17 7H9M17 7V15"
-            stroke="white"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+      <span className="absolute bottom-2 left-2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black">
+        <span className="relative h-6 w-6 overflow-hidden" aria-hidden="true">
+          {/* default */}
+          <svg
+            className="absolute inset-0 h-6 w-6 transition-transform duration-400 group-hover:-translate-y-full"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M7 17L17 7M17 7H9M17 7V15"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          {/* hover replacement (slides up into place) */}
+          <svg
+            className="absolute inset-0 h-6 w-6 translate-y-full transition-transform duration-400 group-hover:translate-y-0"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M7 17L17 7M17 7H9M17 7V15"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
       </span>
     </a>
   );
