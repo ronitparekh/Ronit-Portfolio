@@ -71,10 +71,11 @@ export default function ProfileExperience() {
                                 loading="lazy" />
 
                             {/* Availability badge */}
-                            <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-xs font-normal text-white/80">
-                                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-xs font-normal text-white/80 whitespace-nowrap">
+                                <span className="h-2 w-2 rounded-full bg-green-400" />
                                 Available for work
                             </div>
+
                         </div>
 
                         <h3 className="mb-1 font-satoshi text-xl font-normal text-white">
