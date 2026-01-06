@@ -118,7 +118,7 @@ export default function ProfileExperience() {
 
                         <div className="my-10 h-px w-full bg-white/10" />
 
-                        <div className="mb-10 flex flex-wrap gap-4">
+                        <div className="mb-10 flex flex-wrap justify-center gap-4">
                             {skillTags.map((tag) => (
                                 <span
                                     key={tag}
