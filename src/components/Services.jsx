@@ -34,7 +34,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="px-6 py-32 border border-white/10 rounded-4xl">
+    <section id="services" className="px-6 py-32 border border-white/10 rounded-4xl">
       <div className="mx-auto max-w-7xl">
 
         {/* HEADER */}

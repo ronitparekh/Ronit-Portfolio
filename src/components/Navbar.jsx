@@ -1,6 +1,6 @@
 export default function Navbar() {
     return (
-        <nav className="fixed left-1/2 top-6 z-50 w-[min(980px,calc(100vw-2rem))] -translate-x-1/2 font-poppins">
+        <nav id="navbar" className="fixed left-1/2 top-6 z-50 w-[min(980px,calc(100vw-2rem))] -translate-x-1/2 font-poppins">
             <div className="relative flex items-center justify-between gap-8 rounded-full border border-white/10 bg-black/35 px-7 py-3.5 backdrop-blur-2xl shadow-[0_18px_55px_rgba(0,0,0,0.65)] sm:gap-10 sm:px-10 sm:py-4">
                 {/* <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(120%_160%_at_0%_0%,rgba(255,255,255,0.10),rgba(255,255,255,0)_55%)]" /> */}
                 <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/5" />

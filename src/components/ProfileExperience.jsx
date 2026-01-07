@@ -1,6 +1,13 @@
 import profilePic from "../assets/ProfilePic.jpeg";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function ProfileExperience() {
+    const socials = [
+        { label: "GitHub", href: "https://github.com/ronitparekh", Icon: Github },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/ronit-parekh-8a619a257/", Icon: Linkedin },
+        { label: "Email", href: "mailto:parekhronit21@gmail.com", Icon: Mail },
+    ];
+
     const skillTags = [
         "Full-Stack Development",
         "System Architecture",
@@ -88,13 +95,16 @@ export default function ProfileExperience() {
 
                         {/* Social icons */}
                         <div className="mb-6 flex items-center gap-3">
-                            {["GH", "IN", "@"].map((item) => (
+                            {socials.map((social) => (
                                 <a
-                                    key={item}
-                                    href="#"
-                                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-xs font-normal text-white/70 transition hover:text-white"
+                                    key={social.label}
+                                    href={social.href}
+                                    aria-label={social.label}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/70 transition hover:text-white"
                                 >
-                                    {item}
+                                    <social.Icon className="h-5 w-5" aria-hidden="true" />
                                 </a>
                             ))}
                         </div>

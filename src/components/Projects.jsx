@@ -64,7 +64,7 @@ export default function Projects() {
           <a
             href="#profile-experience"
             aria-label="Scroll to next section"
-            className="float-y-slow inline-flex h-12 w-12 items-center justify-center text-white/80 transition hover:text-white/90 motion-reduce:[animation:none]"
+            className="float-y-slow inline-flex h-12 w-12 items-center justify-center text-white/80 transition hover:text-white/90 motion-reduce:animate-none"
           >
             <svg
               viewBox="0 0 24 24"

@@ -29,7 +29,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="px-6 py-32 border border-white/10 rounded-4xl">
+    <section id="process" className="px-6 py-32 border border-white/10 rounded-4xl">
       <div className="mx-auto max-w-7xl">
 
         {/* Section heading */}

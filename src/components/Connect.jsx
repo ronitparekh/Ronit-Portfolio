@@ -1,4 +1,12 @@
+import { Github, Linkedin, Mail } from "lucide-react";
+
 export default function Connect() {
+    const socials = [
+        { label: "GitHub", href: "https://github.com/ronitparekh", Icon: Github },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/ronit-parekh-8a619a257/", Icon: Linkedin },
+        { label: "Email", href: "mailto:parekhronit21@gmail.com", Icon: Mail },
+    ];
+
     return (
         <section className="px-32 py-32 border border-white/10 rounded-4xl">
             <div>
@@ -150,11 +158,19 @@ export default function Connect() {
                     </div>
 
                     {/* Socials */}
-                    <div className="flex gap-6 text-white/60 font-medium">
-                        <a href="#" className="hover:text-white">X</a>
-                        <a href="#" className="hover:text-white">Instagram</a>
-                        <a href="#" className="hover:text-white">LinkedIn</a>
-                        <a href="#" className="hover:text-white">GitHub</a>
+                    <div className="flex gap-3">
+                        {socials.map((social) => (
+                            <a
+                                key={social.label}
+                                href={social.href}
+                                aria-label={social.label}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/60 transition hover:text-white"
+                            >
+                                <social.Icon className="h-5 w-5" aria-hidden="true" />
+                            </a>
+                        ))}
                     </div>
                 </div>
 
