@@ -21,7 +21,7 @@ export default function Hero() {
 
                 {/* Description */}
                 <p className="mb-7 max-w-2xl font-jakarta text-base font-medium leading-relaxed text-white/60 md:text-[16px]">
-                    I design and build modern web apps—clean interfaces, robust APIs, and thoughtful UX. Let's build something great.
+                    I design and build modern web apps, clean interfaces, robust APIs, and thoughtful UX. Let's build something great.
                 </p>
 
                 {/* Buttons */}

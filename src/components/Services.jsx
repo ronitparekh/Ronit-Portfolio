@@ -4,24 +4,25 @@ export default function Services() {
     "TypeScript",
     "React",
     "Node.js",
+    "HTML5",
+    "CSS3",
     "Express",
-    "MongoDB",
     "REST APIs",
     "JWT Auth",
     "Tailwind CSS",
-    "Git & GitHub",
   ];
 
   const row2Base = [
-    "HTML5",
-    "CSS3",
-    "Postman",
-    "Vercel",
-    "MySQL",
+    "MongoDB",
     "PostgreSQL",
+    "Git & GitHub",
+    "Postman",
+    "MySQL",
     "System Design",
     "API Security",
     "Performance Optimization",
+    "Figma",
+    "Canva"
   ];
 
   const row1Skills = [...row1Base, ...row1Base];
@@ -55,7 +56,7 @@ export default function Services() {
 
             <p className="max-w-md text-white/60">
               Full-stack development services focused on scalability, performance,
-              and real-world business needs.
+              and real world business needs.
             </p>
           </div>
 

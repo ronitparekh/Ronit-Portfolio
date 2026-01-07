@@ -8,7 +8,7 @@ export default function Connect() {
     ];
 
     return (
-        <section className="px-32 py-32 border border-white/10 rounded-4xl">
+        <section id="connect" className="px-32 py-10 border border-white/10 rounded-4xl">
             <div>
 
                 {/* TOP CONTENT */}
