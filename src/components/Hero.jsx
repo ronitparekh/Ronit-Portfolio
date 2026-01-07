@@ -1,10 +1,9 @@
 export default function Hero() {
     return (
-        <section id="home" className="relative px-6 pt-32 pb-6 md:pt-36 md:pb-8">
-            <div className="mx-auto w-full max-w-6xl">
+        <section id="home" className="relative px-6 pt-32 pb-6 md:pt-36 md:pb-8 mb-2">
+            <div className="mx-auto w-full max-w-340">
                 {/* Role pill */}
-                <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
-                    {/* circle + dot icon */}
+                {/* <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
                     <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
                         <span className="relative h-3 w-3 rounded-full border border-white">
                             <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
@@ -12,11 +11,12 @@ export default function Hero() {
                         </span>
                     </span>
                     Full-Stack Developer
-                </div>
+                </div> */}
 
                 {/* Name */}
-                <h1 className="mb-4 font-satoshi text-[54px] font-normal leading-[1.02] tracking-tight md:text-[72px]">
-                    Ronit <span className="text-[#ffffff99]">Parekh</span>
+                <h1 className="mb-4 font-satoshi text-[54px] font-normal leading-[1.02] tracking-tight md:text-[72px] pt-18">
+                    Ronit Parekh
+                    {/* Ronit <span className="text-[#ffffff99]">Parekh</span> */}
                 </h1>
 
                 {/* Description */}

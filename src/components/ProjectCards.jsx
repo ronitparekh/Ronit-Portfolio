@@ -41,12 +41,12 @@ export default function ProjectCard({ project, className }) {
       }}
       onMouseLeave={() => emit("cursorDot:projectLeave")}
       onMouseMove={updateProjectCursor}
-      className={`group relative overflow-visible rounded-4xl bg-[#0f0f0f] p-4
+      className={`group relative overflow-visible rounded-3xl bg-[#0f0f0f] p-4
       shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.8)]
       ${className}`}
     >
       {/* IMAGE FRAME */}
-      <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10">
+      <div className="relative h-full w-full overflow-hidden rounded-[10px] ">
         <img
           src={project.image}
           alt={project.title}
@@ -58,10 +58,10 @@ export default function ProjectCard({ project, className }) {
 
       {/* CORNER ARROW */}
       <span className="absolute bottom-2 left-2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black">
-        <span className="relative h-6 w-6 overflow-hidden" aria-hidden="true">
+        <span className="relative h-7 w-7 overflow-hidden" aria-hidden="true">
           {/* default */}
           <svg
-            className="absolute inset-0 h-6 w-6 transition-transform duration-400 group-hover:-translate-y-full"
+            className="absolute inset-0 h-7 w-7 transition-transform duration-300 group-hover:-translate-y-full"
             viewBox="0 0 24 24"
             fill="none"
           >
@@ -76,7 +76,7 @@ export default function ProjectCard({ project, className }) {
 
           {/* hover replacement (slides up into place) */}
           <svg
-            className="absolute inset-0 h-6 w-6 translate-y-full transition-transform duration-400 group-hover:translate-y-0"
+            className="absolute inset-0 h-7 w-7 translate-y-full transition-transform duration-300 group-hover:translate-y-0"
             viewBox="0 0 24 24"
             fill="none"
           >

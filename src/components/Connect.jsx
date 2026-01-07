@@ -129,6 +129,7 @@ export default function Connect() {
                             </div>
 
                             <div className="pointer-events-none mt-6 h-px w-full bg-white/10" />
+                            
                             <div className="mt-5 flex items-center justify-between text-sm text-white/60">
                                 <span>Design • Build • Ship</span>
                                 <span>UI/UX • APIs • Deploy</span>

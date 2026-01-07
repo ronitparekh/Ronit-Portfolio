@@ -31,8 +31,8 @@ export default function ProfileExperience() {
     ];
 
     return (
-        <section className="px-6 py-32 border border-white/10 rounded-4xl">
-            <div className="mx-auto max-w-6xl">
+        <section id="profile-experience" className="px-6 py-32 border border-white/10 rounded-4xl">
+            <div className="mx-auto max-w-7xl">
 
                 {/* HEADING */}
                 <div className="mb-16 text-center">
@@ -67,7 +67,7 @@ export default function ProfileExperience() {
                             <img
                                 src={profilePic}
                                 alt="Ronit Parekh"
-                                className="h-full w-full object-cover brightness-95 contrast-110"
+                                className="h-100 w-full object-cover brightness-95 contrast-110"
                                 loading="lazy" />
 
                             {/* Availability badge */}
@@ -103,7 +103,7 @@ export default function ProfileExperience() {
 
                         <a
                             href="#contact"
-                            className="mt-6 inline-flex items-center justify-center rounded-full border border-white/10 bg-black/40 px-6 py-5 text-sm font-normal text-white transition hover:opacity-90"
+                            className="mt-8 inline-flex items-center justify-center rounded-full border border-white/10 bg-black/40 px-6 py-5 text-sm font-normal text-white transition hover:opacity-90"
                         >
                             Connect with me
                         </a>
