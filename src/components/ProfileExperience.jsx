@@ -86,7 +86,7 @@ export default function ProfileExperience() {
                         </div>
 
                         <h3 className="mb-1 font-satoshi text-xl font-normal text-white">
-                            Hello I am Ronit Parekh
+                            Hello, I am Ronit Parekh
                         </h3>
 
                         <p className="mb-6 font-jakarta text-sm font-normal text-white/55">
@@ -123,8 +123,8 @@ export default function ProfileExperience() {
                     <div className="rounded-3xl bg-[#0F0F0F] px-8 py-10 min-h-140 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
 
                         <p className="mb-10 max-w-[92%] font-jakarta text-[15px] leading-relaxed text-textPrimary opacity-75">
-                            I’m Ronit Parekh, a Full-Stack Developer with a passion for building modern web apps—
-                            translating ideas into clean UIs, robust APIs, and intuitive digital experiences.
+                            I’m Ronit Parekh, a Full-Stack Developer with a passion for building modern web apps.
+                            Translating ideas into clean UIs, robust APIs, and intuitive digital experiences.
                         </p>
 
                         <div className="my-10 h-px w-full bg-white/10" />

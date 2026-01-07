@@ -1,4 +1,5 @@
 import { MousePointerClick, Lightbulb, Wrench, Rocket } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const steps = [
   {
@@ -28,9 +29,113 @@ const steps = [
 ];
 
 export default function Process() {
+  const sectionRef = useRef(null);
+  const cardsWrapRef = useRef(null);
+
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    const cardsWrapEl = cardsWrapRef.current;
+    if (!sectionEl || !cardsWrapEl) return;
+
+    const prefersReducedMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    )?.matches;
+    if (prefersReducedMotion) {
+      const cards = cardsWrapEl.querySelectorAll("[data-process-card]");
+      cards.forEach((card) => {
+        card.style.opacity = "1";
+        card.style.transform = "none";
+        card.style.willChange = "auto";
+      });
+      return;
+    }
+
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+    const ease = 0.12; // smoothing factor
+
+    let rafId = null;
+    let currentProgress = 0;
+    let targetProgress = 0;
+    let sectionTop = 0;
+    let sectionHeight = 0;
+
+    const cards = Array.from(
+      cardsWrapEl.querySelectorAll("[data-process-card]")
+    );
+
+    const animate = () => {
+      rafId = null;
+      currentProgress = currentProgress + (targetProgress - currentProgress) * ease;
+
+      const n = Math.max(1, cards.length);
+      const active = Math.round(currentProgress * (n - 1));
+
+      for (let i = 0; i < n; i++) {
+        const card = cards[i];
+        const start = i / n;
+        const local = clamp((currentProgress - start) * n, 0, 1);
+        const distance = Math.abs(i - active);
+
+        const baseOpacity = 0.25 + local * 0.75;
+        const focusFactor = 1 - Math.min(distance, 3) * 0.12;
+        const opacity = clamp(baseOpacity * focusFactor, 0.18, 1);
+
+        const translateY = (1 - local) * 16 + Math.min(distance, 3) * 3;
+        const scale = 0.985 + local * 0.015 - Math.min(distance, 3) * 0.006;
+
+        card.style.opacity = opacity.toFixed(3);
+        card.style.transform = `translate3d(0, ${translateY.toFixed(
+          2
+        )}px, 0) scale(${scale.toFixed(3)})`;
+        card.style.willChange = "transform, opacity";
+      }
+
+      if (Math.abs(targetProgress - currentProgress) > 0.001) {
+        rafId = window.requestAnimationFrame(animate);
+      }
+    };
+
+    const kick = () => {
+      if (rafId != null) return;
+      rafId = window.requestAnimationFrame(animate);
+    };
+
+    const recalc = () => {
+      const rect = sectionEl.getBoundingClientRect();
+      sectionTop = rect.top + window.scrollY;
+      sectionHeight = sectionEl.offsetHeight;
+    };
+
+    const onScroll = () => {
+      const viewportH = window.innerHeight || 1;
+      const scrollRange = Math.max(1, sectionHeight - viewportH);
+      const scrollWithin = window.scrollY - sectionTop;
+      targetProgress = clamp(scrollWithin / scrollRange, 0, 1);
+      kick();
+    };
+
+    recalc();
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", recalc);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", recalc);
+      if (rafId != null) window.cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <section id="process" className="px-6 py-32 border border-white/10 rounded-4xl">
-      <div className="mx-auto max-w-7xl">
+    <section
+      ref={sectionRef}
+      id="process"
+      className="relative border border-white/10 rounded-4xl py-20"
+      style={{ height: `${steps.length * 100}vh` }}
+    >
+      <div className="sticky top-0 h-screen px-6 py-24 md:py-28">
+        <div className="mx-auto w-full max-w-7xl">
 
         {/* Section heading */}
         <div className="mb-20 text-center">
@@ -55,41 +160,45 @@ export default function Process() {
         </div>
 
         {/* Cards */}
-        <div className="grid gap-20 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((item) => (
-            <div
-              key={item.step}
-              className="relative rounded-3xl bg-[#0F0F0F] p-8 min-h-90 w-80
+        <div ref={cardsWrapRef}>
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {steps.map((item) => (
+              <div
+                key={item.step}
+                data-process-card
+                className="relative w-80 rounded-3xl bg-[#0F0F0F] p-8 min-h-90
                          border border-white/10
                          shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
-            >
-              {/* Step number */}
-              <div className="absolute right-6 top-6 flex h-7 w-7 items-center justify-center rounded-full bg-black text-xs text-white/70 border border-white/10">
-                {item.step}
+              >
+                {/* Step number */}
+                <div className="absolute right-6 top-6 flex h-7 w-7 items-center justify-center rounded-full bg-black text-xs text-white/70 border border-white/10">
+                  {item.step}
+                </div>
+
+                {/* Icon */}
+                <item.icon className="mb-6 h-6 w-6 text-white/80" />
+
+                {/* Title */}
+                <h3 className="mb-3 text-lg font-medium text-white">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm leading-relaxed text-white/60">
+                  {item.desc}
+                </p>
+
+                {/* Divider */}
+                <div className="my-6 h-px w-full bg-white/10" />
+
+                {/* Step pill */}
+                <span className="inline-flex rounded-full bg-black px-3 py-1.5 text-xs text-white/60 border border-white/10">
+                  Step {item.step}
+                </span>
               </div>
-
-              {/* Icon */}
-              <item.icon className="mb-6 h-6 w-6 text-white/80" />
-
-              {/* Title */}
-              <h3 className="mb-3 text-lg font-medium text-white">
-                {item.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm leading-relaxed text-white/60">
-                {item.desc}
-              </p>
-
-              {/* Divider */}
-              <div className="my-6 h-px w-full bg-white/10" />
-
-              {/* Step pill */}
-              <span className="inline-flex rounded-full bg-black px-3 py-1.5 text-xs text-white/60 border border-white/10">
-                Step {item.step}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
         </div>
       </div>
     </section>

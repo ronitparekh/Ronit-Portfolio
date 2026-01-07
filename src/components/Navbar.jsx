@@ -15,7 +15,7 @@ export default function Navbar() {
                     <a href="#home" className="transition-colors hover:text-white/85">Home</a>
                     <a href="#projects" className="transition-colors hover:text-white/85">Projects</a>
                     <a href="#resume" className="transition-colors hover:text-white/85">Resume</a>
-                    <a href="#contact" className="transition-colors hover:text-white/85">Contact</a>
+                    <a href="#connect" className="transition-colors hover:text-white/85">Contact</a>
                 </div>
             </div>
         </nav>
