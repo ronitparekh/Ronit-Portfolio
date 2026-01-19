@@ -41,8 +41,8 @@ export default function ProjectCard({ project, className }) {
       }}
       onMouseLeave={() => emit("cursorDot:projectLeave")}
       onMouseMove={updateProjectCursor}
-      className={`group relative overflow-visible rounded-3xl bg-[#0f0f0f] p-4
-      shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.8)]
+      className={`group relative overflow-visible bg-[#0f0f0f] p-5 border-white/10 rounded-[20px]
+      shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]
       ${className}`}
     >
       {/* IMAGE FRAME */}

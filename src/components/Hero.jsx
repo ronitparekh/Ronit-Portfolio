@@ -25,17 +25,17 @@ export default function Hero() {
                 </p>
 
                 {/* Buttons */}
-                <div className="flex gap-3 sm:gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                     <a
                         href="#projects"
-                        className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-5 text-sm font-medium text-white transition hover:opacity-90"
+                        className="inline-flex w-full max-w-full items-center justify-center rounded-[100px]  border-white/10 bg-[linear-gradient(180deg,rgb(120,120,120)_-382%,rgb(10,10,10)_100%)] px-6 py-5 text-sm font-medium text-white transition hover:opacity-90 sm:w-auto"
                     >
                         See All Projects
                     </a>
 
                     <a
                         href="#contact"
-                        className="inline-flex items-center justify-center rounded-full bg-white  px-6 py-5 text-sm font-medium text-black transition hover:opacity-90"
+                        className="inline-flex w-full items-center justify-center rounded-[100px] bg-[linear-gradient(180deg,rgb(255,255,255)_0%,rgb(120,120,120)_140%)] px-6 py-5 text-sm font-medium text-black shadow-none transition hover:opacity-90 will-change-transform sm:w-auto"
                     >
                         Contact Now
                     </a>

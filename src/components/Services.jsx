@@ -25,13 +25,13 @@ export default function Services() {
     "Canva"
   ];
 
-  const row1Skills = [...row1Base, ...row1Base];
-  const row2Skills = [...row2Base, ...row2Base];
+  const row1Skills = row1Base;
+  const row2Skills = row2Base;
 
   const webDevImages = [
-    { src: "/images/service-web.svg", alt: "Web Pages" },
-    { src: "/images/service-auth.svg", alt: "Authentication" },
-    { src: "/images/service-deploy.svg", alt: "Deployment" },
+    { src: "/images/webdev-browser.svg", alt: "Responsive Web UI" },
+    { src: "/images/webdev-api.svg", alt: "API Integration" },
+    { src: "/images/webdev-stack.svg", alt: "Full-stack Architecture" },
   ];
 
   return (
@@ -41,14 +41,16 @@ export default function Services() {
         {/* HEADER */}
         <div className="mb-10 flex items-center justify-between">
           <div>
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
-              <span className="inline-flex h-4 w-4 items-center justify-center">
-                <span className="relative h-3 w-3 rounded-full border border-white">
-                  <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
-                </span>
-              </span>
-              Development Services
-            </div>
+            {/*pill */}
+                    <div className="mb-6 inline-flex items-center gap-3 bg-[#121212] px-4 py-2 text-sm font-medium text-white rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
+                        {/* circle + dot icon */}
+                        <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
+                            <span className="relative h-3 w-3 rounded-full border border-white">
+                                <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
+                            </span>
+                        </span>
+                        Development Services
+                    </div>
 
             <h2 className="mb-2 text-[42px] md:text-[56px]">
               Development <span className="text-white/50">Services</span>
@@ -62,7 +64,7 @@ export default function Services() {
 
           <a
             href="#contact"
-            className="rounded-full bg-white px-6 py-5 text-sm font-medium text-black hover:bg-white/90 transition"
+            className="rounded-[100px] bg-[linear-gradient(180deg,rgb(255,255,255)_0%,rgb(120,120,120)_140%)] px-6 py-5 text-sm font-medium text-black shadow-none transition hover:opacity-90 will-change-transform"
           >
             Contact Now
           </a>
@@ -75,7 +77,7 @@ export default function Services() {
               <div className="flex flex-col gap-8">
 
                 {/* BIG CARD — Web App Dev */}
-                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                <div className="relative bg-[#0f0f0f] p-8  border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                 <h3 className="mb-3 text-lg font-medium text-white">
                     Frontend Engineering
                   </h3>
@@ -95,7 +97,7 @@ export default function Services() {
                 </div>
 
                 {/* SMALL CARD — Backend */}
-                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                <div className="relative bg-[#0f0f0f] p-8  border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                   <h3 className="mb-3 text-lg font-medium text-white">
                     Backend & API Development
                   </h3>
@@ -111,7 +113,7 @@ export default function Services() {
               <div className="flex flex-col gap-8">
 
                 {/* SMALL CARD — Frontend */}
-                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                <div className="relative bg-[#0f0f0f] p-8  border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                   <h3 className="mb-3 text-lg font-medium text-white">
                     Authentication & Deployment
                   </h3>
@@ -122,7 +124,7 @@ export default function Services() {
                 </div>
 
                 {/* BIG CARD — Auth + Deploy */}
-                <div className="rounded-3xl bg-[#0F0F0F] p-8 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                <div className="relative bg-[#0f0f0f] p-8  border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                   
                   <h3 className="mb-3 text-lg font-medium text-white">
                     Web Application Development
@@ -170,30 +172,30 @@ export default function Services() {
       <div className="mx-auto mt-28 max-w-7xl overflow-hidden relative">
 
             {/* Fade edges (optional but Framer-like) */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-50 bg-linear-to-r from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-50 bg-linear-to-l from-black to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 md:w-32 bg-linear-to-r from-bg to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 md:w-32 bg-linear-to-l from-bg to-transparent" />
 
             {/* ROW 1 → */}
             <div className="mb-6">
               <div
-                className="flex w-max animate-marquee items-center will-change-transform [animation-duration:35s] motion-reduce:animate-none"
+                className="flex w-max animate-marquee items-center gap-4 will-change-transform [animation-duration:35s] motion-reduce:animate-none"
               >
-                <div className="flex shrink-0 items-center gap-4 pr-4">
+                <div className="flex shrink-0 items-center gap-4">
                   {row1Skills.map((skill, idx) => (
                     <span
                       key={`${skill}-${idx}`}
-                      className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex shrink-0 items-center gap-4 pr-4" aria-hidden="true">
+                <div className="flex shrink-0 items-center gap-4" aria-hidden="true">
                   {row1Skills.map((skill, idx) => (
                     <span
                       key={`${skill}-${idx}-dup`}
-                      className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
                     >
                       {skill}
                     </span>
@@ -205,24 +207,24 @@ export default function Services() {
             {/* ROW 2 ← */}
             <div>
               <div
-                className="flex w-max animate-marqueeReverse items-center will-change-transform [animation-duration:45s] motion-reduce:animate-none"
+                className="flex w-max animate-marqueeReverse items-center gap-4 will-change-transform [animation-duration:45s] motion-reduce:animate-none"
               >
-                <div className="flex shrink-0 items-center gap-4 pr-4">
+                <div className="flex shrink-0 items-center gap-4">
                   {row2Skills.map((skill, idx) => (
                     <span
                       key={`${skill}-${idx}`}
-                      className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex shrink-0 items-center gap-4 pr-4" aria-hidden="true">
+                <div className="flex shrink-0 items-center gap-4" aria-hidden="true">
                   {row2Skills.map((skill, idx) => (
                     <span
                       key={`${skill}-${idx}-dup`}
-                      className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
                     >
                       {skill}
                     </span>

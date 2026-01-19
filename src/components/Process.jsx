@@ -139,16 +139,16 @@ export default function Process() {
 
         {/* Section heading */}
         <div className="mb-20 text-center">
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
-                    {/* circle + dot icon */}
-                    <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
-                        <span className="relative h-3 w-3 rounded-full border border-white">
-                            <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
-
+          {/*pill */}
+                    <div className="mb-6 inline-flex items-center gap-3 bg-[#121212] px-4 py-2 text-sm font-medium text-white rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
+                        {/* circle + dot icon */}
+                        <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
+                            <span className="relative h-3 w-3 rounded-full border border-white">
+                                <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
+                            </span>
                         </span>
-                    </span>
-                    How It Works
-                </div>
+                        How It Works
+                    </div>
 
           <h2 className="mb-4 font-satoshi text-[42px] font-normal tracking-tight md:text-[56px]">
             Process <span className="text-white/50">Is Everything</span>
@@ -166,9 +166,8 @@ export default function Process() {
               <div
                 key={item.step}
                 data-process-card
-                className="relative w-80 rounded-3xl bg-[#0F0F0F] p-8 min-h-90
-                         border border-white/10
-                         shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+                className="relative w-80 bg-[#0f0f0f] p-8 min-h-90  border-white/10 rounded-[20px]
+                         shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]"
               >
                 {/* Step number */}
                 <div className="absolute right-6 top-6 flex h-7 w-7 items-center justify-center rounded-full bg-black text-xs text-white/70 border border-white/10">

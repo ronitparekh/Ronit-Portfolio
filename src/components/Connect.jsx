@@ -16,16 +16,15 @@ export default function Connect() {
 
                     {/* LEFT */}
                     <div>
-                        {/* Pill */}
-                        <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
+                        {/*pill */}
+                        <div className="mb-6 inline-flex items-center gap-3 bg-[#121212] px-4 py-2 text-sm font-medium text-white rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                             {/* circle + dot icon */}
                             <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
                                 <span className="relative h-3 w-3 rounded-full border border-white">
                                     <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
-
                                 </span>
                             </span>
-                            Let's Connect
+                            Let’s Connect
                         </div>
                         {/* Heading */}
                         <h2 className="mb-6 text-[40px] font-normal leading-tight md:text-[56px]">
@@ -47,14 +46,14 @@ export default function Connect() {
                         <div className="flex flex-wrap gap-4">
                             <a
                                 href="#projects"
-                                className="rounded-full border border-white/10 bg-[#0f0f0f] px-6 py-5 text-sm text-white transition hover:opacity-90"
+                                className="inline-flex w-full max-w-full items-center justify-center rounded-[100px]  border-white/10 bg-[linear-gradient(180deg,rgb(120,120,120)_-382%,rgb(10,10,10)_100%)] px-6 py-5 text-sm font-medium text-white transition hover:opacity-90 sm:w-auto"
                             >
                                 See All Projects
                             </a>
 
                             <a
                                 href="#contact"
-                                className="rounded-full bg-white px-6 py-5 text-sm font-medium text-black transition hover:opacity-90"
+                                className="rounded-[100px] bg-[linear-gradient(180deg,rgb(255,255,255)_0%,rgb(120,120,120)_140%)] px-6 py-5 text-sm font-medium text-black shadow-none transition hover:opacity-90 will-change-transform"
                             >
                                 Get Started Now
                             </a>
@@ -63,7 +62,7 @@ export default function Connect() {
 
                     {/* RIGHT (abstract 3D visual) */}
                     <div className="relative">
-                        <div className="rounded-3xl border border-white/10 bg-[#0f0f0f] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                        <div className="rounded-3xl  border-white/10 bg-[#0f0f0f] p-7 shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                             <div
                                 className="relative mx-auto aspect-4/3 w-full max-w-md"
                                 style={{ perspective: "1200px" }}
@@ -137,7 +136,7 @@ export default function Connect() {
                             </div>
 
                             <div className="pointer-events-none mt-6 h-px w-full bg-white/10" />
-                            
+
                             <div className="mt-5 flex items-center justify-between text-sm text-white/60">
                                 <span>Design • Build • Ship</span>
                                 <span>UI/UX • APIs • Deploy</span>
@@ -153,8 +152,8 @@ export default function Connect() {
                     <div className="flex flex-wrap gap-6 text-m font-medium text-white/60">
                         <a href="#services" className="hover:text-white">Services</a>
                         <a href="#projects" className="hover:text-white">Projects</a>
-                        <a href="#profile" className="hover:text-white">Profile</a>
-                        <a href="#contact" className="hover:text-white">Contact</a>
+                        <a href="#profile-experience" className="hover:text-white">Profile</a>
+                        <a href="#connect" className="hover:text-white">Contact</a>
                     </div>
 
                     {/* Socials */}

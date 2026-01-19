@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="gs" x1="180" y1="200" x2="1020" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA" stop-opacity="0.40"/>
+      <stop offset="0.55" stop-color="#34D399" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.32"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="40" y="40" width="1120" height="720" rx="64" fill="#0F0F0F" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Ambient gradient -->
+  <circle cx="350" cy="620" r="260" fill="url(#gs)"/>
+
+  <!-- Stack diagram container -->
+  <rect x="140" y="150" width="920" height="560" rx="34" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.16)" stroke-width="3"/>
+
+  <!-- Layers: UI -> API -> DB -->
+  <g stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="rgba(255,255,255,0.04)">
+    <rect x="240" y="215" width="720" height="140" rx="26"/>
+    <rect x="240" y="385" width="720" height="140" rx="26"/>
+    <rect x="240" y="555" width="720" height="120" rx="26"/>
+  </g>
+
+  <!-- Layer titles (as subtle pills) -->
+  <g>
+    <rect x="275" y="245" width="170" height="30" rx="15" fill="#60A5FA" fill-opacity="0.22" stroke="#60A5FA" stroke-opacity="0.42" stroke-width="2"/>
+    <rect x="275" y="415" width="160" height="30" rx="15" fill="#34D399" fill-opacity="0.18" stroke="#34D399" stroke-opacity="0.36" stroke-width="2"/>
+    <rect x="275" y="585" width="190" height="30" rx="15" fill="#A78BFA" fill-opacity="0.20" stroke="#A78BFA" stroke-opacity="0.38" stroke-width="2"/>
+  </g>
+
+  <!-- Nodes on each layer -->
+  <g fill="rgba(255,255,255,0.12)">
+    <rect x="520" y="250" width="180" height="18" rx="9"/>
+    <rect x="520" y="420" width="210" height="18" rx="9"/>
+    <rect x="520" y="590" width="160" height="18" rx="9"/>
+  </g>
+
+  <!-- Connectors -->
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.80" fill="none">
+    <path d="M600 355V385"/>
+    <path d="M600 525V555"/>
+    <path d="M585 375L600 385L615 375"/>
+    <path d="M585 545L600 555L615 545"/>
+  </g>
+
+  <!-- DB cylinder hint -->
+  <g stroke="rgba(255,255,255,0.55)" stroke-width="8" fill="none" opacity="0.8">
+    <ellipse cx="900" cy="605" rx="55" ry="18"/>
+    <path d="M845 605V650C845 662 870 672 900 672C930 672 955 662 955 650V605"/>
+    <ellipse cx="900" cy="650" rx="55" ry="18" opacity="0.55"/>
+  </g>
+</svg>

@@ -44,16 +44,16 @@ export default function ProfileExperience() {
                 {/* HEADING */}
                 <div className="mb-16 text-center">
                     {/* Role pill */}
-                    <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_2px_rgba(255,255,255,0.07),0_12px_30px_rgba(0,0,0,0.55)]">
+                    <div className="mb-6 inline-flex items-center gap-3 bg-[#121212] px-4 py-2 text-sm font-medium text-white rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
                         {/* circle + dot icon */}
                         <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
                             <span className="relative h-3 w-3 rounded-full border border-white">
                                 <span className="absolute inset-0 m-auto h-1 w-1 rounded-full bg-white" />
-
                             </span>
                         </span>
                         Full-Stack Developer
                     </div>
+
                     <h2 className="mb-4 font-satoshi text-[42px] font-normal leading-[1.05] tracking-tight md:text-[56px]">
                         Ronit Parekh,{" "}
                         <span className="text-[#ffffff99]">Your Developer</span>
@@ -68,20 +68,31 @@ export default function ProfileExperience() {
                 <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.9fr_1.1fr]">
 
                     {/* PROFILE CARD */}
-                    <div className=" relative rounded-3xl border border-white/10 bg-[#0f0f0f] p-8 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                    <div
+                        className="relative bg-[#0f0f0f] p-6 border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]"
+                    >
                         {/* Image */}
                         <div className="relative mb-6 overflow-hidden rounded-2xl">
                             <img
                                 src={profilePic}
                                 alt="Ronit Parekh"
                                 className="h-100 w-full object-cover brightness-95 contrast-110"
-                                loading="lazy" />
+                                loading="lazy"
+                            />
 
                             {/* Availability badge */}
-                            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-xs font-normal text-white/80 whitespace-nowrap">
-                                <span className="h-2 w-2 rounded-full bg-green-400" />
-                                Available for work
+                            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30">
+                                <div className="availBadge">
+                                    {/* DOT (beside text) */}
+                                    <span className="availDotWrap">
+                                        <span className="availDot" />
+                                        <span className="availDotPulse" />
+                                    </span>
+
+                                    <span className="availText">Available for work</span>
+                                </div>
                             </div>
+
 
                         </div>
 
@@ -113,14 +124,15 @@ export default function ProfileExperience() {
 
                         <a
                             href="#contact"
-                            className="mt-8 inline-flex items-center justify-center rounded-full border border-white/10 bg-black/40 px-6 py-5 text-sm font-normal text-white transition hover:opacity-90"
+                            className="mt-8 inline-flex items-center justify-center rounded-[100px]  border-white/10 bg-[linear-gradient(180deg,rgb(120,120,120)_-382%,rgb(10,10,10)_100%)] px-6 py-5 text-sm font-normal text-white transition hover:opacity-90"
                         >
                             Connect with me
                         </a>
                     </div>
 
+
                     {/* EXPERIENCE CARD */}
-                    <div className="rounded-3xl bg-[#0F0F0F] px-8 py-10 min-h-140 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+                    <div className="relative bg-[#0f0f0f] p-8  border-white/10 rounded-[20px] shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]">
 
                         <p className="mb-10 max-w-[92%] font-jakarta text-[15px] leading-relaxed text-textPrimary opacity-75">
                             I’m Ronit Parekh, a Full-Stack Developer with a passion for building modern web apps.

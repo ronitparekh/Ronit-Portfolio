@@ -32,10 +32,12 @@ export default {
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
+          // With `gap-4` between the two duplicated groups, subtract half the gap
+          // so the loop point remains seamless.
+          "100%": { transform: "translateX(calc(-50% - 0.5rem))" },
         },
         marqueeReverse: {
-          "0%": { transform: "translateX(-50%)" },
+          "0%": { transform: "translateX(calc(-50% - 0.5rem))" },
           "100%": { transform: "translateX(0)" },
         },
       },

@@ -1,19 +1,72 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
   <rect x="40" y="40" width="1120" height="720" rx="64" fill="#0F0F0F" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
 
-  <path d="M420 520C360 520 310 475 310 418C310 364 350 320 405 318C425 270 470 235 525 235C595 235 655 292 660 365C665 365 670 365 675 365C740 365 792 417 792 482C792 542 742 590 680 590H420" stroke="rgba(255,255,255,0.75)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Cloud / infra backdrop -->
+  <path d="M360 520C300 520 250 475 250 418C250 364 290 320 345 318C365 270 410 235 465 235C535 235 595 292 600 365C605 365 610 365 615 365C680 365 732 417 732 482C732 542 682 590 620 590H360" stroke="rgba(255,255,255,0.35)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 
-  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9">
-    <path d="M740 240C820 260 895 335 915 415C835 395 760 320 740 240Z"/>
-    <path d="M705 275C645 335 615 430 625 535C730 545 825 515 885 455"/>
-    <path d="M725 455L655 525"/>
-    <path d="M760 490L690 560"/>
-    <circle cx="760" cy="345" r="22"/>
+  <!-- CI/CD pipeline: Git -> Build -> Deploy -->
+  <g stroke="rgba(255,255,255,0.18)" stroke-width="3" fill="rgba(255,255,255,0.05)">
+    <rect x="165" y="210" width="260" height="150" rx="26"/>
+    <rect x="470" y="210" width="260" height="150" rx="26"/>
+    <rect x="775" y="210" width="260" height="150" rx="26"/>
   </g>
 
+  <!-- Arrows -->
+  <g stroke="rgba(255,255,255,0.40)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M425 285H470"/>
+    <path d="M450 265L470 285L450 305"/>
+    <path d="M730 285H775"/>
+    <path d="M755 265L775 285L755 305"/>
+  </g>
+
+  <!-- Git icon (left) -->
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <path d="M245 300L210 265L245 230"/>
+    <path d="M300 300L335 265L300 230"/>
+    <path d="M245 265H300" opacity="0.7"/>
+  </g>
+  <g fill="rgba(255,255,255,0.12)">
+    <rect x="185" y="322" width="220" height="12" rx="6"/>
+  </g>
+
+  <!-- Build (middle): terminal + progress -->
+  <g stroke="rgba(255,255,255,0.25)" stroke-width="3" fill="rgba(255,255,255,0.04)">
+    <rect x="500" y="240" width="200" height="85" rx="18"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <path d="M540 285L575 265L540 245"/>
+    <path d="M595 285H650" opacity="0.75"/>
+  </g>
+  <g fill="rgba(255,255,255,0.12)">
+    <rect x="500" y="332" width="165" height="12" rx="6"/>
+    <rect x="500" y="352" width="220" height="12" rx="6"/>
+  </g>
+
+  <!-- Deploy (right): server stack + check -->
+  <g stroke="rgba(255,255,255,0.25)" stroke-width="3" fill="rgba(255,255,255,0.04)">
+    <rect x="815" y="240" width="180" height="40" rx="14"/>
+    <rect x="815" y="290" width="180" height="40" rx="14"/>
+  </g>
+  <g fill="rgba(255,255,255,0.12)">
+    <circle cx="845" cy="260" r="6"/>
+    <circle cx="845" cy="310" r="6"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <path d="M905 340L930 365L980 315"/>
+  </g>
+
+  <!-- "Deploy to cloud" rocket (subtle) -->
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.80">
+    <path d="M835 505C915 525 990 600 1010 680C930 660 855 585 835 505Z"/>
+    <path d="M805 535C745 595 715 690 725 785C830 795 925 765 985 705"/>
+    <path d="M820 705L760 765"/>
+    <circle cx="860" cy="610" r="18"/>
+  </g>
+
+  <!-- Base "data" lines -->
   <g stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round">
-    <path d="M560 640V700"/>
-    <path d="M600 640V720"/>
-    <path d="M640 640V700"/>
+    <path d="M520 640V700"/>
+    <path d="M560 640V720"/>
+    <path d="M600 640V700"/>
   </g>
 </svg>

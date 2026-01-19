@@ -1,29 +1,87 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="fw1" x1="120" y1="160" x2="1080" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA" stop-opacity="0.45"/>
+      <stop offset="0.55" stop-color="#A78BFA" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="fw2" x1="260" y1="220" x2="980" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F472B6" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card background (matches site aesthetic) -->
   <rect x="40" y="40" width="1120" height="720" rx="64" fill="#0F0F0F" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-  <g stroke="rgba(255,255,255,0.08)" stroke-width="2">
-    <path d="M160 190H1040"/>
-    <path d="M160 260H1040"/>
-    <path d="M160 330H1040"/>
-    <path d="M160 400H1040"/>
-    <path d="M160 470H1040"/>
-    <path d="M160 540H1040"/>
-    <path d="M160 610H1040"/>
-  </g>
-  <rect x="180" y="160" width="840" height="480" rx="28" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
-  <path d="M180 220H1020" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
-  <circle cx="220" cy="190" r="8" fill="rgba(255,255,255,0.26)"/>
-  <circle cx="248" cy="190" r="8" fill="rgba(255,255,255,0.18)"/>
-  <circle cx="276" cy="190" r="8" fill="rgba(255,255,255,0.12)"/>
 
-  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
-    <path d="M470 330L380 400L470 470"/>
-    <path d="M730 330L820 400L730 470"/>
-    <path d="M570 300L530 500" opacity="0.75"/>
+  <!-- Ambient color accents (frontend-friendly, not loud) -->
+  <circle cx="300" cy="230" r="210" fill="url(#fw1)"/>
+  <circle cx="980" cy="610" r="240" fill="url(#fw2)"/>
+
+  <!-- Subtle grid texture -->
+  <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
+    <path d="M140 210H1060"/>
+    <path d="M140 280H1060"/>
+    <path d="M140 350H1060"/>
+    <path d="M140 420H1060"/>
+    <path d="M140 490H1060"/>
+    <path d="M140 560H1060"/>
+    <path d="M140 630H1060"/>
   </g>
 
+  <!-- Primary: responsive UI preview (browser) -->
+  <rect x="160" y="160" width="720" height="500" rx="28" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
+  <path d="M160 220H880" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
+  <circle cx="200" cy="190" r="8" fill="rgba(255,255,255,0.26)"/>
+  <circle cx="228" cy="190" r="8" fill="rgba(255,255,255,0.18)"/>
+  <circle cx="256" cy="190" r="8" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Sidebar + content layout -->
+  <rect x="190" y="250" width="170" height="380" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <g fill="rgba(255,255,255,0.10)">
+    <rect x="210" y="275" width="130" height="14" rx="7"/>
+    <rect x="210" y="305" width="110" height="12" rx="6"/>
+    <rect x="210" y="335" width="120" height="12" rx="6"/>
+    <rect x="210" y="365" width="95" height="12" rx="6"/>
+  </g>
+
+  <!-- Cards grid -->
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="2" fill="rgba(255,255,255,0.05)">
+    <rect x="385" y="250" width="220" height="150" rx="18"/>
+    <rect x="620" y="250" width="230" height="150" rx="18"/>
+    <rect x="385" y="415" width="220" height="215" rx="18"/>
+    <rect x="620" y="415" width="230" height="215" rx="18"/>
+  </g>
+
+  <!-- Tiny "utility" pills (Tailwind-ish, with color accents) -->
+  <g>
+    <rect x="410" y="275" width="96" height="14" rx="7" fill="#60A5FA" fill-opacity="0.22"/>
+    <rect x="410" y="297" width="130" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+    <rect x="645" y="275" width="118" height="14" rx="7" fill="#A78BFA" fill-opacity="0.20"/>
+    <rect x="645" y="297" width="150" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+  </g>
+
+  <!-- Accent highlight on one card -->
+  <rect x="620" y="415" width="230" height="215" rx="18" fill="none" stroke="#34D399" stroke-opacity="0.22" stroke-width="6"/>
+    <rect x="410" y="275" width="96" height="14" rx="7"/>
+    <rect x="410" y="297" width="130" height="12" rx="6"/>
+    <rect x="645" y="275" width="118" height="14" rx="7"/>
+    <rect x="645" y="297" width="150" height="12" rx="6"/>
+  </g>
+
+  <!-- Secondary: mobile preview -->
+  <rect x="900" y="210" width="180" height="450" rx="36" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
+  <rect x="925" y="250" width="130" height="95" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <rect x="925" y="360" width="130" height="130" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
   <g fill="rgba(255,255,255,0.12)">
-    <rect x="500" y="255" width="220" height="18" rx="9"/>
-    <rect x="500" y="540" width="360" height="16" rx="8"/>
-    <rect x="500" y="570" width="280" height="16" rx="8"/>
+    <rect x="945" y="510" width="90" height="14" rx="7"/>
+    <rect x="945" y="535" width="70" height="12" rx="6"/>
+  </g>
+
+  <!-- "React component" angle brackets (subtle, topic-specific) -->
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    <path d="M520 330L470 370L520 410"/>
+    <path d="M690 330L740 370L690 410"/>
+    <path d="M610 315L585 425" opacity="0.7"/>
   </g>
 </svg>

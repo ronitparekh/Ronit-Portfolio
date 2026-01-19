@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="140" y1="180" x2="1060" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#A78BFA" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="240" y1="250" x2="880" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F472B6" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="40" y="40" width="1120" height="720" rx="64" fill="#0F0F0F" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Ambient gradient blobs -->
+  <circle cx="260" cy="220" r="180" fill="url(#g1)"/>
+  <circle cx="980" cy="620" r="220" fill="url(#g2)"/>
+
+  <!-- Browser frame -->
+  <rect x="140" y="150" width="920" height="560" rx="34" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
+  <path d="M140 220H1060" stroke="rgba(255,255,255,0.12)" stroke-width="3"/>
+  <circle cx="185" cy="186" r="8" fill="rgba(255,255,255,0.26)"/>
+  <circle cx="213" cy="186" r="8" fill="rgba(255,255,255,0.18)"/>
+  <circle cx="241" cy="186" r="8" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Hero header -->
+  <rect x="185" y="255" width="430" height="34" rx="17" fill="rgba(255,255,255,0.10)"/>
+  <rect x="185" y="305" width="520" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+  <rect x="185" y="333" width="420" height="18" rx="9" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Cards -->
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="2" fill="rgba(255,255,255,0.04)">
+    <rect x="185" y="385" width="290" height="145" rx="22"/>
+    <rect x="505" y="385" width="290" height="145" rx="22"/>
+    <rect x="825" y="385" width="205" height="145" rx="22"/>
+  </g>
+
+  <!-- Responsive device preview -->
+  <rect x="825" y="550" width="205" height="130" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+  <rect x="855" y="570" width="145" height="55" rx="16" fill="rgba(255,255,255,0.06)"/>
+  <rect x="855" y="635" width="110" height="14" rx="7" fill="rgba(255,255,255,0.10)"/>
+
+  <!-- Color accents as UI badges -->
+  <g>
+    <rect x="215" y="415" width="140" height="26" rx="13" fill="#60A5FA" fill-opacity="0.25" stroke="#60A5FA" stroke-opacity="0.45" stroke-width="2"/>
+    <rect x="535" y="415" width="160" height="26" rx="13" fill="#A78BFA" fill-opacity="0.22" stroke="#A78BFA" stroke-opacity="0.42" stroke-width="2"/>
+    <rect x="855" y="415" width="120" height="26" rx="13" fill="#34D399" fill-opacity="0.18" stroke="#34D399" stroke-opacity="0.36" stroke-width="2"/>
+  </g>
+
+  <!-- Subtle code brackets -->
+  <g stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M620 520L575 555L620 590"/>
+    <path d="M750 520L795 555L750 590"/>
+    <path d="M685 510L660 600" opacity="0.65"/>
+  </g>
+</svg>
