@@ -43,7 +43,7 @@ export default function Hero() {
             </div>
  
             {/* Background */}
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_45%)]"></div>
+            {/* <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_45%)]"></div> */}
         </section>
     );
 }

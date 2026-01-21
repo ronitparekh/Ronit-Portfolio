@@ -165,7 +165,7 @@ export default function Connect() {
                                 aria-label={social.label}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/60 transition hover:text-white"
+                                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/80 transition hover:text-white"
                             >
                                 <social.Icon className="h-5 w-5" aria-hidden="true" />
                             </a>
