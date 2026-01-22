@@ -16,14 +16,9 @@ export default function ProfileExperience() {
 
     const experiences = [
         {
-            role: "Volunteer",
-            company: "Ariaro 2.0 (Tech Event), Karnavati University",
-            year: "2024",
-        },
-        {
-            role: "Organising Team Member",
-            company: "Ariaro 3.0 (Tech Event)",
-            year: "2025",
+            role: "Software Engineer",
+            company: "Seven Square Technosoft",
+            year: "2025 – Present",
         },
         {
             role: "Frontend Developer",
@@ -31,10 +26,17 @@ export default function ProfileExperience() {
             year: "2025",
         },
         {
-            role: "Software Engineer",
-            company: "Seven Square Technosoft",
-            year: "2025 – Present",
+            role: "Organising Team Member",
+            company: "Ariaro 3.0 (Tech Event)",
+            year: "2025",
         },
+        {
+            role: "Volunteer",
+            company: "Ariaro 2.0 (Tech Event), Karnavati University",
+            year: "2024",
+        },
+        
+        
     ];
 
     return (

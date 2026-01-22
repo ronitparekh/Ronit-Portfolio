@@ -2,27 +2,31 @@ import ProjectCard from "./ProjectCards";
 
 const projects = [
   {
-    title: "Smart Attendance System",
-    image:
-      "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1600&q=80",
-    link: "#",
-  },
-  {
     title: "ParkEasy",
     image:
+      "/images/ParkEasy.png",
+    // imageFit: "contain",
+    link: "https://parkeasyy.vercel.app/",
+  },
+  {
+    title: "Smart Attendance System",
+    image:
       "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1600&q=80",
+    // imageFit: "contain",
     link: "#",
   },
   {
     title: "MyPlanner-Calendar App",
     image:
-      "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1600&q=80",
-    link: "#",
+      "/images/MyPlanner.png",
+    // imageFit: "contain",
+    link: "https://myplanner-ronit.vercel.app/",
   },
   {
-    title: "OptiMatrix Solutions",
+    title: "EduQuiz",
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+      "/images/EduQuiz.png",
+    // imageFit: "contain",
     link: "#",
   },
 ];  
@@ -32,7 +36,7 @@ export default function Projects() {
     <section id="projects" className="px-6 pb-32">
       <div className="mx-auto max-w-350">
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:grid-rows-[260px_260px_260px]">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:grid-rows-[280px_240px_280px]">
 
           {/* TOP LEFT — TALL */}
           <ProjectCard

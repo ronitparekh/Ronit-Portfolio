@@ -29,9 +29,10 @@ export default function Services() {
   const row2Skills = row2Base;
 
   const webDevImages = [
-    { src: "/images/webdev-browser.svg", alt: "Responsive Web UI" },
-    { src: "/images/webdev-api.svg", alt: "API Integration" },
-    { src: "/images/webdev-stack.svg", alt: "Full-stack Architecture" },
+    { src: "/images/MyPlanner_Services.png", alt: "MyPlanner Website" },
+    { src: "/images/EduQuiz_Services.png", alt: "EduQuiz App" },
+    { src: "/images/ParkEasy_Services.png", alt: "ParkEasy Website" },
+    
   ];
 
   return (

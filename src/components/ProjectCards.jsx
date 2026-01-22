@@ -3,6 +3,9 @@ import { useRef } from "react";
 export default function ProjectCard({ project, className }) {
   const cardRef = useRef(null);
 
+  const imageFit = project?.imageFit === "contain" ? "contain" : "cover";
+  const imagePosition = project?.imagePosition === "top" ? "top" : "center";
+
   const emit = (name, detail) => {
     if (typeof window === "undefined") return;
     window.dispatchEvent(new CustomEvent(name, { detail }));
@@ -33,7 +36,7 @@ export default function ProjectCard({ project, className }) {
 
   return (
     <a
-      href="#"
+      href={project?.link || "#"}
       ref={cardRef}
       onMouseEnter={(e) => {
         emit("cursorDot:projectEnter", { label: "View project" });
@@ -41,17 +44,24 @@ export default function ProjectCard({ project, className }) {
       }}
       onMouseLeave={() => emit("cursorDot:projectLeave")}
       onMouseMove={updateProjectCursor}
-      className={`group relative overflow-visible bg-[#0f0f0f] p-5 border-white/10 rounded-[20px]
+      className={`group relative block h-full overflow-visible bg-[#0f0f0f] p-5 border-white/10 rounded-[20px]
       shadow-[16px_24px_20px_8px_rgba(0,0,0,0.4),inset_0px_2px_0px_0px_rgba(184,180,180,0.08)]
       ${className}`}
     >
       {/* IMAGE FRAME */}
-      <div className="relative h-full w-full overflow-hidden rounded-[10px] ">
+      <div
+        className={`relative w-full overflow-hidden rounded-[10px] aspect-16/10 md:aspect-auto md:h-full ${
+          imageFit === "contain" ? "bg-black/40 p-3" : ""
+        }`}
+      >
         <img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover grayscale contrast-125 brightness-90
-          transition duration-500 group-hover:grayscale-0 group-hover:brightness-100"
+          loading="lazy"
+          decoding="async"
+          className={`h-full w-full grayscale contrast-125 brightness-90 transition duration-500 group-hover:grayscale-0 group-hover:brightness-100 ${
+            imageFit === "contain" ? "object-contain" : "object-cover"
+          } ${imagePosition === "top" ? "object-top" : "object-center"}`}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
