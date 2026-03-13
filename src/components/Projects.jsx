@@ -7,6 +7,7 @@ const projects = [
       "/images/ParkEasy.png",
     // imageFit: "contain",
     link: "https://parkeasyy.vercel.app/",
+    wakeUrl: "https://parkeasy-api.onrender.com/wake",
   },
   {
     title: "Smart Attendance System",
@@ -21,6 +22,7 @@ const projects = [
       "/images/MyPlanner.png",
     // imageFit: "contain",
     link: "https://myplanner-ronit.vercel.app/",
+    wakeUrl: "https://calendar-app-api.onrender.com/wake",
   },
   {
     title: "EduQuiz",
@@ -29,7 +31,7 @@ const projects = [
     // imageFit: "contain",
     link: "#",
   },
-];  
+];
 
 export default function Projects() {
   return (

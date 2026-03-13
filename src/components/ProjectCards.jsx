@@ -12,26 +12,17 @@ export default function ProjectCard({ project, className }) {
   };
 
   const updateProjectCursor = (e) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
+    emit("cursorDot:projectMove", { x: e.clientX, y: e.clientY });
+  };
 
-    // cursor position relative to card
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
+  const warmProject = () => {
+    if (!project?.wakeUrl) return;
 
-    // keep CTA inside safe bounds
-    const padding = 24;
-    const ctaWidth = 120;
-    const ctaHeight = 40;
-
-    x = Math.max(padding, Math.min(x, rect.width - ctaWidth - padding));
-    y = Math.max(padding, Math.min(y, rect.height - ctaHeight - padding));
-
-    // CursorDot expects screen-space center coordinates
-    const centerX = rect.left + x + ctaWidth / 2;
-    const centerY = rect.top + y + ctaHeight / 2;
-
-    emit("cursorDot:projectMove", { x: centerX, y: centerY });
+    fetch(project.wakeUrl, {
+      method: "GET",
+      cache: "no-store",
+      mode: "cors",
+    }).catch(() => {});
   };
 
   return (
@@ -39,9 +30,11 @@ export default function ProjectCard({ project, className }) {
       href={project?.link || "#"}
       ref={cardRef}
       onMouseEnter={(e) => {
+        warmProject();
         emit("cursorDot:projectEnter", { label: "View project" });
         updateProjectCursor(e);
       }}
+      onFocus={warmProject}
       onMouseLeave={() => emit("cursorDot:projectLeave")}
       onMouseMove={updateProjectCursor}
       className={`group relative block h-full overflow-visible bg-[#0f0f0f] p-5 border-white/10 rounded-[20px]
@@ -59,7 +52,7 @@ export default function ProjectCard({ project, className }) {
           alt={project.title}
           loading="lazy"
           decoding="async"
-          className={`h-full w-full grayscale contrast-125 brightness-90 transition duration-500 group-hover:grayscale-0 group-hover:brightness-100 ${
+          className={`h-full w-full grayscale contrast-125 brightness-90 transition duration-500 group-hover:grayscale-0 group-hover:brightness-95 ${
             imageFit === "contain" ? "object-contain" : "object-cover"
           } ${imagePosition === "top" ? "object-top" : "object-center"}`}
         />

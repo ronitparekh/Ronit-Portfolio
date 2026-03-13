@@ -1,6 +1,35 @@
 import profilePic from "../assets/ProfilePic.jpeg";
 import { Github, Linkedin, Mail } from "lucide-react";
 
+const row1Base = [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "HTML5",
+    "CSS3",
+    "Express",
+    "REST APIs",
+    "JWT Auth",
+    "Tailwind CSS",
+  ];
+
+  const row2Base = [
+    "MongoDB",
+    "PostgreSQL",
+    "Git & GitHub",
+    "Postman",
+    "MySQL",
+    "System Design",
+    "API Security",
+    "Performance Optimization",
+    "Figma",
+    "Canva"
+  ];
+
+  const row1Skills = row1Base;
+  const row2Skills = row2Base;
+
 export default function ProfileExperience() {
     const socials = [
         { label: "GitHub", href: "https://github.com/ronitparekh", Icon: Github },
@@ -163,7 +192,7 @@ export default function ProfileExperience() {
                                 >
                                     <div className="text-[15px] font-jakarta font-medium">
                                         {exp.role}
-                                    </div>
+                                    </div> 
                                     <div className="text-[15px] font-jakarta font-normal">
                                         {exp.company}
                                     </div>
@@ -176,6 +205,72 @@ export default function ProfileExperience() {
                     </div>
                 </div>
             </div>
+            {/* ================= SKILLS MARQUEE ================= */}
+      <div className="mx-auto mt-28 max-w-7xl overflow-hidden relative">
+
+            {/* Fade edges*/}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 md:w-32 bg-linear-to-r from-bg to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 md:w-32 bg-linear-to-l from-bg to-transparent" />
+
+            {/* ROW 1 → */}
+            <div className="mb-6">
+              <div
+                className="flex w-max animate-marquee items-center gap-4 will-change-transform [animation-duration:35s] motion-reduce:animate-none"
+              >
+                <div className="flex shrink-0 items-center gap-4">
+                  {row1Skills.map((skill, idx) => (
+                    <span
+                      key={`${skill}-${idx}`}
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex shrink-0 items-center gap-4" aria-hidden="true">
+                  {row1Skills.map((skill, idx) => (
+                    <span
+                      key={`${skill}-${idx}-dup`}
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 2 ← */}
+            <div>
+              <div
+                className="flex w-max animate-marqueeReverse items-center gap-4 will-change-transform [animation-duration:45s] motion-reduce:animate-none"
+              >
+                <div className="flex shrink-0 items-center gap-4">
+                  {row2Skills.map((skill, idx) => (
+                    <span
+                      key={`${skill}-${idx}`}
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex shrink-0 items-center gap-4" aria-hidden="true">
+                  {row2Skills.map((skill, idx) => (
+                    <span
+                      key={`${skill}-${idx}-dup`}
+                      className="whitespace-nowrap rounded-full  bg-white/2 px-6 py-3 text-sm text-white/80 backdrop-blur-md"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+      </div>
+      {/* ================= END MARQUEE ================= */}
         </section>
     );
 }

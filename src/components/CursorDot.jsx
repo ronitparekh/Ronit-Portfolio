@@ -4,6 +4,7 @@ export default function CursorDot() {
   const dotRef = useRef(null);
   const labelRef = useRef(null);
   const rafRef = useRef(0);
+  const leaveTimerRef = useRef(null);
 
   const mouseRef = useRef({ x: 0, y: 0 });
   const targetRef = useRef({ x: 0, y: 0 });
@@ -37,6 +38,24 @@ export default function CursorDot() {
 
     const lerp = (a, b, t) => a + (b - a) * t;
 
+    const measurePillTargetSize = () => {
+      const labelEl = labelRef.current;
+      if (!labelEl) return null;
+
+      // Label span includes padding via Tailwind classes, so rect already
+      // reflects the “desired” pill content size.
+      const rect = labelEl.getBoundingClientRect();
+      // Add a small buffer so the border never feels tight on one side
+      // due to subpixel rounding during the animated lerp.
+      const bufferX = 6;
+      const bufferY = 6;
+      const w = Math.ceil(rect.width + bufferX);
+      const h = Math.ceil(rect.height + bufferY);
+
+      // Keep some sane minimums to avoid tiny pills.
+      return { w: Math.max(88, w), h: Math.max(36, h) };
+    };
+
     const onMouseMove = (e) => {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
@@ -58,11 +77,15 @@ export default function CursorDot() {
     };
 
     const onProjectEnter = (e) => {
+      if (leaveTimerRef.current) {
+        clearTimeout(leaveTimerRef.current);
+        leaveTimerRef.current = null;
+      }
+
       modeRef.current = "project";
       dotEl.dataset.mode = "project";
 
       textRef.current = e?.detail?.label || "View project";
-      sizeTargetRef.current = { w: 120, h: 40 };
     };
 
     const onProjectMove = (e) => {
@@ -76,32 +99,51 @@ export default function CursorDot() {
 
     const onProjectLeave = () => {
       modeRef.current = "dot";
-      dotEl.dataset.mode = "dot";
+      dotEl.dataset.mode = "projectLeave";
       sizeTargetRef.current = { w: 12, h: 12 };
       targetRef.current.x = mouseRef.current.x;
       targetRef.current.y = mouseRef.current.y;
+
+      if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = setTimeout(() => {
+        dotEl.dataset.mode = "dot";
+        leaveTimerRef.current = null;
+      }, 560);
     };
 
     const tick = () => {
-      const speed = prefersReducedMotion ? 1 : 0.18;
-      currentRef.current.x = lerp(currentRef.current.x, targetRef.current.x, speed);
-      currentRef.current.y = lerp(currentRef.current.y, targetRef.current.y, speed);
+      if (labelRef.current && labelRef.current.textContent !== textRef.current) {
+        labelRef.current.textContent = textRef.current;
+      }
 
-      const sizeSpeed = prefersReducedMotion ? 1 : 0.22;
+      if (modeRef.current === "project") {
+        const measured = measurePillTargetSize();
+        if (measured) sizeTargetRef.current = measured;
+      }
+
+      if (prefersReducedMotion) {
+        currentRef.current.x = targetRef.current.x;
+        currentRef.current.y = targetRef.current.y;
+      } else {
+        const follow = modeRef.current === "project" ? 0.12 : 0.22;
+        currentRef.current.x = lerp(currentRef.current.x, targetRef.current.x, follow);
+        currentRef.current.y = lerp(currentRef.current.y, targetRef.current.y, follow);
+      }
+
+      const shrinking =
+        sizeTargetRef.current.w < sizeCurrentRef.current.w ||
+        sizeTargetRef.current.h < sizeCurrentRef.current.h;
+      const sizeSpeed = prefersReducedMotion ? 1 : shrinking ? 0.12 : 0.22;
       sizeCurrentRef.current.w = lerp(sizeCurrentRef.current.w, sizeTargetRef.current.w, sizeSpeed);
       sizeCurrentRef.current.h = lerp(sizeCurrentRef.current.h, sizeTargetRef.current.h, sizeSpeed);
 
-      dotEl.style.width = `${sizeCurrentRef.current.w}px`;
-      dotEl.style.height = `${sizeCurrentRef.current.h}px`;
+      dotEl.style.width = `${Math.round(sizeCurrentRef.current.w)}px`;
+      dotEl.style.height = `${Math.round(sizeCurrentRef.current.h)}px`;
 
-      // center dot on cursor
       const x = currentRef.current.x;
       const y = currentRef.current.y;
-      dotEl.style.transform = `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`;
 
-      if (labelRef.current) {
-        labelRef.current.textContent = textRef.current;
-      }
+      dotEl.style.transform = `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`;
 
       rafRef.current = requestAnimationFrame(tick);
     };
@@ -113,7 +155,6 @@ export default function CursorDot() {
     window.addEventListener("cursorDot:projectMove", onProjectMove);
     window.addEventListener("cursorDot:projectLeave", onProjectLeave);
 
-    // start hidden until first move
     dotEl.style.opacity = "0";
     dotEl.dataset.mode = "dot";
     targetRef.current.x = mouseRef.current.x;
@@ -128,6 +169,11 @@ export default function CursorDot() {
       window.removeEventListener("cursorDot:projectMove", onProjectMove);
       window.removeEventListener("cursorDot:projectLeave", onProjectLeave);
       cancelAnimationFrame(rafRef.current);
+
+      if (leaveTimerRef.current) {
+        clearTimeout(leaveTimerRef.current);
+        leaveTimerRef.current = null;
+      }
     };
   }, []);
 
@@ -135,26 +181,60 @@ export default function CursorDot() {
     <div
       ref={dotRef}
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-9999 grid place-items-center rounded-full transition-opacity duration-200"
+      className="pointer-events-none fixed left-0 top-0 z-9999 grid place-items-center rounded-full border border-transparent transition-opacity duration-200"
       style={{ willChange: "transform" }}
     >
       <span
         ref={labelRef}
-        className="select-none px-5 text-sm font-medium text-black opacity-0 transition-opacity duration-200 whitespace-nowrap"
+        className="select-none px-6 text-base font-medium text-white opacity-0 transition-opacity duration-500 whitespace-nowrap"
       />
       <style>
         {`
+          [data-mode]{
+            transition: background-color 520ms ease, border-color 520ms ease, box-shadow 520ms ease;
+          }
           [data-mode="dot"]{
-            background: #fff;
+            background-color: #fff;
           }
           [data-mode="project"]{
-            background: rgba(255,255,255,0.4);
+            background-color: rgba(18,18,18,0.45);
+            border-color: rgba(255,255,255,0.55);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.55);
+          }
+          [data-mode="projectLeave"]{
+            background-color: rgba(18,18,18,0.45);
+            border-color: rgba(255,255,255,0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.55);
+          }
+          [data-mode="project"]::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: radial-gradient(140% 160% at 30% 20%, rgba(255,255,255,0.16), rgba(255,255,255,0) 60%);
+            opacity: 1;
+            pointer-events: none;
+          }
+          [data-mode="projectLeave"]::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: radial-gradient(140% 160% at 30% 20%, rgba(255,255,255,0.16), rgba(255,255,255,0) 60%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 520ms ease;
           }
           [data-mode="project"] span{
             opacity: 1;
+          }
+          [data-mode="projectLeave"] span{
+            opacity: 0;
+            transition: opacity 160ms ease;
           }
         `}
       </style>
